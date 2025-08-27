@@ -1,0 +1,10 @@
+{
+  "ShowPermissionsFormat": "Привилегии: {permissions}",
+  "PermissionsDelimiter": ", ",
+  "PermissionFiniteFormat": "{name} {time}",
+  "PermissionFormat": "{name}",
+  "TimeFormat": "[{time}]",
+
+  "PermissionName_IncreasedRate": "Increased gathering rate",
+  "PermissionName_HPRefill": "Access to .refill"
+}

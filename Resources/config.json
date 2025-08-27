@@ -1,0 +1,85 @@
+{
+    "Commands": {
+        "ShowPermissions": {
+            "Aliases": [
+                "permissions",
+                "roles",
+                "privileges"
+            ]
+        },
+        "AddPermission": {
+            "Aliases": [
+                "add-permission"
+            ],
+            "Middleware": "Configuration"
+        },
+        "SetPermission": {
+            "Aliases": [
+                "set-permission"
+            ],
+            "Middleware": "Configuration"
+        },
+        "RemovePermission": {
+            "Aliases": [
+                "remove-permission"
+            ],
+            "Middleware": "Configuration"
+        },
+        "AddToGroup": {
+            "Aliases": [
+                "add-group"
+            ],
+            "Middleware": "Configuration"
+        }, 
+        "RemoveFromGroup": {
+            "Aliases": [
+                "remove-group"
+            ],
+            "Middleware": "Configuration"
+        },
+        "RefreshPermissions": {
+            "Aliases": [
+                "refresh-permissions"
+            ],
+            "Middleware": "Configuration"
+        },
+        "Reload": {
+            "Aliases": [
+                "reload"
+            ],
+            "Middleware": "Configuration"
+        }
+    },
+    "AdminAuthGroup": "Admin",
+    "PermissionAccess": {
+        "Configuration": "*",
+        "Creation": "Feature1",
+        "Moderation": ""
+        
+    },
+    "Permissions": [
+        "Configuration",
+        "Creation",
+        "Moderation",
+        "Feature1",
+        "Feature2"
+    ],
+    "Groups": {
+        "Admin": [
+            "Configuration",
+            "Creation",
+            "Moderation"
+        ],
+        "GM": [
+            "Creation",
+            "Moderation"
+        ],
+        "Moderator": [
+            "Moderation"
+        ],
+        "Premium": [
+            "Feature1",
+            "Feature2"
+        ]
+    }
+}

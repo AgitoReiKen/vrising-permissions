@@ -1,0 +1,76 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Roles and Permissions for BepInEx</Description>
+    <RootNamespace>Permissions</RootNamespace>
+    <PackageId>Permissions</PackageId>
+    <BepInExPluginGuid>com.agitoreiken.permissions</BepInExPluginGuid>
+    <InteropLibPath>F:\SteamLibrary\steamapps\common\VRisingDedicatedServer\BepInEx\interop_src</InteropLibPath>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
+    
+    <TargetFramework>net6.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion> 
+    <RestoreSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+    </RestoreSources>
+    <DebugType>Portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Core" Version="6.0.0-pre.1" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.1.0" />
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.735" /> 
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /Y /F &quot;$(TargetPath)&quot; &quot;F:\SteamLibrary\steamapps\common\VRisingDedicatedServer\BepInEx\plugins\$(BepInExPluginGuid)\&quot;" />
+    <Exec Command="xcopy /Y /F &quot;$(ProjectDir)Resources\*.json&quot; &quot;F:\SteamLibrary\steamapps\common\VRisingDedicatedServer\BepInEx\config\$(BepInExPluginGuid)\&quot;" />
+  </Target>
+  <ItemGroup>
+    <Reference Include="Localization">
+      <HintPath>$(SolutionDir)Localization\bin\Debug\net6.0\Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Commands">
+      <HintPath>$(SolutionDir)Commands\bin\Debug\net6.0\Commands.dll</HintPath>
+    </Reference>
+    <Reference Include="Database">
+      <HintPath>$(SolutionDir)Database\bin\Debug\net6.0\Database.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(InteropLibPath)\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Collections">
+      <HintPath>$(InteropLibPath)\Unity.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities">
+      <HintPath>$(InteropLibPath)\Unity.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjectM">
+      <HintPath>$(InteropLibPath)\ProjectM.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjectM.Shared">
+      <HintPath>$(InteropLibPath)\ProjectM.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjectM.Network">
+      <HintPath>$(InteropLibPath)\ProjectM.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(InteropLibPath)\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2Cppmscorlib">
+      <HintPath>$(InteropLibPath)\Il2Cppmscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem">
+      <HintPath>$(InteropLibPath)\Il2CppSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Core">
+      <HintPath>$(InteropLibPath)\Il2CppSystem.Core.dll</HintPath>
+    </Reference> 
+  </ItemGroup>
+</Project>
